@@ -1,12 +1,18 @@
-/* Reset & Base */
-body, ul, li, h1, h2, p {
+/* Reset */
+* {
     margin: 0;
     padding: 0;
+    box-sizing: border-box;
 }
+
+/* Basic Layout */
 body {
-    font-family: Arial, sans-serif;
+    font-family: 'Roboto', sans-serif;
     background-color: #f3f3f3;
     color: #333;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
 }
 
 /* Header */
@@ -14,37 +20,90 @@ header {
     background-color: #232323;
     color: white;
     text-align: center;
-    padding: 20px 0;
+    padding: 20px;
 }
 
 nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
+    margin-top: 10px;
+}
+
+nav ul li {
+    margin: 0 15px;
 }
 
 nav ul li a {
+    color: #ff5733;
     text-decoration: none;
-    color: white;
-    margin: 0 15px;
-    padding: 10px;
+    font-weight: bold;
+    padding: 5px 10px;
 }
 
 nav ul li a:hover {
-    background-color: #ff5733;
+    background-color: #333;
+    color: white;
     border-radius: 5px;
+}
+
+/* Main Section */
+main {
+    flex: 1;
+    padding: 40px 20px;
+}
+
+.contact-section {
+    background: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contact-section h2 {
+    text-align: center;
+    color: #232323;
+    margin-bottom: 20px;
+}
+
+form label {
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+form input, form textarea, form button {
+    width: 100%;
+    margin-top: 5px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: #ff5733;
+    color: white;
+    font-weight: bold;
+    border: none;
+    cursor: pointer;
+}
+
+form button:hover {
+    background-color: #e14b2e;
 }
 
 /* Footer */
 footer {
     background-color: #232323;
     color: white;
+    padding: 20px 0;
     text-align: center;
-    padding: 10px 0;
+    position: relative;
+    width: 100%;
 }
 
-/* Highlight Section */
-.highlight {
-    padding: 20px;
-    text-align: center;
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
 }
