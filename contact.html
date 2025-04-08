@@ -1,29 +1,70 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Contact - 9 Eleven</title>
-    <link rel="stylesheet" href="css/styles.css">
+  <meta charset="UTF-8">
+  <title>Contact Us - 9 Eleven</title>
+  <link rel="stylesheet" href="css/styles.css">
+  <link rel="icon" href="favicon.ico" type="image/x-icon">
+  <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script type="text/javascript">
+    (function() {
+      emailjs.init("hd8S9bU0sbH_YUHr9"); // Replace with your EmailJS public key
+    })();
+
+    window.onload = function() {
+      document.getElementById('contactForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        // Capture email and phone number from form
+        const userEmail = document.getElementById("email").value;
+        const userPhone = document.getElementById("phone").value;
+
+        // Send form data to EmailJS
+        emailjs.sendForm('service_fz6fy1i', 'template_zphhw0y', this)
+          .then(function(response) {
+            alert(`Email sent successfully! Details:
+            Email: ${userEmail}
+            Phone: ${userPhone}`);
+          }, function(error) {
+            alert('Email failed to send. Please try again later.');
+          });
+      });
+    };
+  </script>
 </head>
 <body>
-    <header>
-        <h1>Contact 9 Eleven</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="about.html">About Us</a></li>
-                <li><a href="contact.html">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <section>
-            <p>Email us at <a href="mailto:info@9eleven.com">info@9eleven.com</a></p>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2025 9 Eleven. Your neighborhood store, reimagined.</p>
-    </footer>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About Us</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+  <main>
+    <h1>Contact Us</h1>
+    <form id="contactForm">
+      <label for="name">Your Name</label>
+      <input type="text" name="name" id="name" placeholder="Your Name" required><br>
+
+      <label for="email">Your Email</label>
+      <input type="email" name="email" id="email" placeholder="Your Email" required><br>
+
+      <label for="phone">Your Phone Number</label>
+      <input type="tel" name="phone" id="phone" placeholder="Your Phone Number" required><br>
+
+      <label for="title">Subject</label>
+      <input type="text" name="title" id="title" placeholder="Subject" required><br>
+
+      <label for="message">Your Message</label>
+      <textarea name="message" id="message" placeholder="Your Message" required></textarea><br>
+
+      <button type="submit">Send</button>
+    </form>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 9 Eleven. All rights reserved.</p>
+    <p>Powered by 9 Eleven</p>
+  </footer>
 </body>
 </html>
